@@ -51,12 +51,13 @@ class Game
   end
   
   def turn
+    board.display
     index = current_player.move(board)
     if !board.valid_move?(index)
       puts "Not a valid move."
       turn
     else
-      board.display
+      
       board.update(index, current_player)
       board.display
       puts "'#{current_player.token}' It's your turn!"
