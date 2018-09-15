@@ -57,9 +57,7 @@ class Game
       puts "Not a valid move."
       turn
     else
-      
       board.update(index, current_player)
-      board.display
       puts "'#{current_player.token}' It's your turn!"
      
     end
