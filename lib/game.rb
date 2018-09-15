@@ -59,8 +59,9 @@ class Game
     else
       board.display
       board.update(index, current_player)
-      puts "'#{current_player.token}' It's your turn!"
       board.display
+      puts "'#{current_player.token}' It's your turn!"
+      
     end
   end
   
