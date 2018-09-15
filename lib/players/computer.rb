@@ -4,10 +4,8 @@ module Players
       corners = ["1", "3", "7", "9"]
       if board.turn_count == 0
         choice = corners.sample
-      elsif board.turn_count == 1
+      else board.turn_count == 1
         choice = "5"
-      elsif 
-        
       end
       until  board.valid_move?(choice)
         choice = (1..9).to_a.sample.to_s
