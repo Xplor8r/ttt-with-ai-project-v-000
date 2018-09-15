@@ -6,6 +6,11 @@ module Players
         choice = corners.sample
       elsif board.turn_count == 1
         choice = "5"
+      else
+        Game::WIN_COMBINATIONS.find do |combo|
+          combo.select {|input| board.position(input) != token}.length == 2
+          choice = (combo.select {|input| board.position(input+1) != " "}.first.to_i + 1).to_s
+        end
       end
       until  board.valid_move?(choice)
         choice = (1..9).to_a.sample.to_s

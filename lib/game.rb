@@ -1,7 +1,7 @@
 class Game
   attr_accessor :board, :player_1, :player_2
 
-  def initialize(player_1 = Players::Human.new("X"), player_2 = Players::Human.new("O"), board = Board.new)
+  def initialize(player_1 = Players::Human.new("X"), player_2 = Players::Computer.new("O"), board = Board.new)
     @player_1 = player_1
     @player_2 = player_2
     @board = board
@@ -56,15 +56,18 @@ class Game
       puts "Not a valid move."
       turn
     else
-   
       board.update(index, current_player)
       board.display
+      puts "'#{current_player.token}' It's your turn!"
+     
     end
   end
   
   def play
-    puts "Ready Player 1? Go!"
+    board.display
+    
     until over?
+      puts "Ready '#{current_player.token}'? It's your turn!"
       turn
     end
     if won?
