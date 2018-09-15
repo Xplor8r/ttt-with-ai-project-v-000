@@ -60,7 +60,7 @@ class Game
       board.display
       board.update(index, current_player)
       puts "'#{current_player.token}' It's your turn!"
-     
+      board.display
     end
   end
   
