@@ -51,7 +51,7 @@ class Game
   end
   
   def turn
-    board.display
+ 
     index = current_player.move(board)
     if !board.valid_move?(index)
       puts "Not a valid move."
