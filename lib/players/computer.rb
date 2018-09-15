@@ -8,7 +8,7 @@ module Players
         choice = "5"
       else
         Game::WIN_COMBINATIONS.find do |combo|
-          combo.select {|input| board.position(input) != token}.length == 2
+          if combo.select {|input| board.position(input) != token}.length == 2
           choice = (combo.select {|input| board.position(input+1) != " "}.first.to_i + 1).to_s
         end
       end
