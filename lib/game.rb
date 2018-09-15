@@ -65,6 +65,7 @@ class Game
   
   def play
     board.display
+    puts "'X' It's your turn!"
     until over?
       turn
     end
