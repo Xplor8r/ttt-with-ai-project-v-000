@@ -7,9 +7,9 @@ module Players
       elsif board.turn_count == 1
         choice = "5"
       else
-        Game::WIN_COMBINATIONS.find do |combo|
-          if combo.select {|input| board.position(input) != token}.length == 2
-          choice = (combo.select {|input| board.position(input+1) != " "}.first.to_i + 1).to_s
+        Game::WIN_COMBINATIONS.find do |cmb|
+          if cmb.select{|i| board.position(i+1) != " " && board.position(i+1) != token}.size == 2 && cmb.any?{|i| board.position(i+1) == " "}
+            choice = cmb.select{|i| !board.taken?(i+1)}.first.to_i.+(1).to_s
           end
         end
       end
