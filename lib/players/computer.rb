@@ -10,6 +10,7 @@ module Players
         Game::WIN_COMBINATIONS.find do |combo|
           if combo.select {|input| board.position(input) != token}.length == 2
           choice = (combo.select {|input| board.position(input+1) != " "}.first.to_i + 1).to_s
+          end
         end
       end
       until  board.valid_move?(choice)
