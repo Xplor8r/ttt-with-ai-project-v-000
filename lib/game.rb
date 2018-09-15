@@ -64,10 +64,7 @@ class Game
   end
   
   def play
-    board.display
-    
-    until over?
-      puts "Ready '#{current_player.token}'? It's your turn!"
+    until over?"
       turn
     end
     if won?
